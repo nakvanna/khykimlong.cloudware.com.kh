@@ -1,0 +1,68 @@
+// app global css in SCSS form
+@media (min-width: 1440px) {
+  .q-header .q-tab__content, .q-footer .q-tab__content {
+    min-width: 0 !important;
+  }
+}
+a.q-tab.relative-position.self-stretch.flex.flex-center.text-center.q-router-link--exact-active.q-router-link--active.q-tab--active.text-white.q-tab--no-caps.q-focusable.q-hoverable.cursor-pointer {
+  background: #ffffff42;
+}
+#login-card {
+  margin: 0 auto;
+}
+body {
+  font-family: 'Battambang', 'Roboto', sans-serif;
+}
+.ellipsis{
+  overflow: visible !important;
+}
+.table-virtual-scroll {
+  height: 700px;
+
+  thead tr {
+    th {
+      background-color: #fff !important;
+      position: sticky;
+      z-index: 1;
+    }
+
+    &:last-child th {
+      top: 48px;
+    }
+
+    &:first-child th {
+      top: 0;
+    }
+  }
+}
+.table-virtual-scroll-stock {
+  height: 600px;
+
+  thead tr {
+    th {
+      background-color: #fff !important;
+      position: sticky;
+      z-index: 1;
+    }
+
+    &:last-child th {
+      top: 48px;
+    }
+
+    &:first-child th {
+      top: 0;
+    }
+  }
+}
+.tox.tox-silver-sink.tox-tinymce-aux {
+  z-index: 9999 !important;
+}
+.tox-fullscreen .tox.tox-tinymce.tox-fullscreen {
+  z-index: 9999 !important;
+}
+.tox-statusbar {
+  display: none !important;
+}
+.active-route-link{
+  background: #ffffff42 !important;
+}
