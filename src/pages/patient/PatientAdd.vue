@@ -216,8 +216,8 @@ export default {
         age: null,
         phone: null,
         current_address_book: null,
-        // hostname: 'https://api.visai.cloudware.com.kh/',
-        hostname: 'http://localhost:3000/',
+        hostname: 'https://api.khykimlong.cloudware.com.kh/',
+        // hostname: 'http://localhost:3000/',
       },
       data_detail: {
         diagnosis: null,

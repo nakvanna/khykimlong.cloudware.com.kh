@@ -277,8 +277,8 @@
           check_date: '',
           doctor: '',
           photo: '',
-          // hostname: 'https://api.visai.cloudware.com.kh/',
-          hostname: 'http://localhost:3000/',
+          hostname: 'https://api.khykimlong.cloudware.com.kh/',
+          // hostname: 'http://localhost:3000/',
         },
         doctor: {
           doctor: null

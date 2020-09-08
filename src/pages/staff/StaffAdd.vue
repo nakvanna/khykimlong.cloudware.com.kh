@@ -252,8 +252,8 @@
           facebook: '',
           pob_address_book: '',
           current_address_book: '',
-          // hostname: 'https://api.visai.cloudware.com.kh/',
-          hostname: 'http://localhost:3000/',
+          hostname: 'https://api.khykimlong.cloudware.com.kh/',
+          // hostname: 'http://localhost:3000/',
         },
         optionsAddressBook: []
       }
