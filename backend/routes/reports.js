@@ -114,10 +114,10 @@ router.post('/print-echo-baby/:id', async function (req, res, next) {
         docx: `${Date.now()}-${echo_baby.patient.lt_name}-${echo_baby.patient.lt_name}.docx`,
       },
       data: {
-        pdf: 'http://localhost:3000/files/report.pdf',
-        docx: 'http://localhost:3000/files/report.docx',
-        // pdf: 'https://api.visai.cloudware.com.kh/files/report.pdf',
-        // docx: 'https://api.visai.cloudware.com.kh/files/report.docx',
+        // pdf: 'http://localhost:3000/files/report.pdf',
+        // docx: 'http://localhost:3000/files/report.docx',
+        pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
+        docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
       },
       message: 'Successfully Generated report!'
     });
@@ -197,8 +197,8 @@ router.post('/print-echo-baby/:id', async function (req, res, next) {
       data: {
         pdf: 'http://localhost:3000/files/report.pdf',
         docx: 'http://localhost:3000/files/report.docx',
-        // pdf: 'https://api.visai.cloudware.com.kh/files/report.pdf',
-        // docx: 'https://api.visai.cloudware.com.kh/files/report.docx',
+        // pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
+        // docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
       },
       message: 'Successfully Generated report!'
     });
@@ -248,10 +248,10 @@ router.post('/print-patient-sr/:id', async function (req, res, next) {
             docx: `${Date.now()}-${new_patient_detail.patient.lt_name}.docx`,
           },
           data: {
-            pdf: 'http://localhost:3000/files/report.pdf',
-            docx: 'http://localhost:3000/files/report.docx',
-            // pdf: 'https://api.visai.cloudware.com.kh/files/report.pdf',
-            // docx: 'https://api.visai.cloudware.com.kh/files/report.docx',
+            // pdf: 'http://localhost:3000/files/report.pdf',
+            // docx: 'http://localhost:3000/files/report.docx',
+            pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
+            docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
           },
           message: 'Successfully Generated report!'
         });
@@ -328,10 +328,10 @@ router.post('/print-labo-sr/:id', async function (req, res, next) {
             docx: `${Date.now()}-${labos.patient.llatin}-${labos.patient.flatin}}.docx`,
           },
           data: {
-            pdf: 'http://localhost:3000/files/report.pdf',
-            docx: 'http://localhost:3000/files/report.docx',
-            // pdf: 'https://api.visai.cloudware.com.kh/files/report.pdf',
-            // docx: 'https://api.visai.cloudware.com.kh/files/report.docx',
+            // pdf: 'http://localhost:3000/files/report.pdf',
+            // docx: 'http://localhost:3000/files/report.docx',
+            pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
+            docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
           },
           message: 'Successfully Generated report!'
         });
