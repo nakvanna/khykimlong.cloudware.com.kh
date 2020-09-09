@@ -215,7 +215,7 @@ export default {
   },
   methods: {
     viewInstructions() {
-      // window.open('http://localhost:3000/files/hospital-guide-book.pdf','_blank')
+      // window.open('http://localhost:9000/files/hospital-guide-book.pdf','_blank')
       window.open('https://api.khykimlong.cloudware.com.kh/files/hospital-guide-book.pdf', '_blank')
     },
     filter(val, update) {

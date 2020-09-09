@@ -16,7 +16,7 @@ function toDataURL(url, callback) {
   xhr.send();
 }
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'http://localhost:9000/';
 const fonts = {
   Roboto: {
     normal: 'Roboto-Regular.ttf',

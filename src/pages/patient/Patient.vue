@@ -264,12 +264,10 @@ export default {
       self.$q.loading.show()
       self.$store.dispatch('report/printPatient', id).then(function (data) {
         if (data.status) {
-          self.$q.loading.hide()
-          window.open(data.data.pdf, '_blank')
-          // setTimeout(function () {
-          //   self.$q.loading.hide()
-          //   window.open(data.data.pdf, '_blank')
-          // }, 2000);
+          setTimeout(function () {
+            self.$q.loading.hide()
+            window.open(data.data.pdf, '_blank')
+          }, 3000);
         }
       })
     },

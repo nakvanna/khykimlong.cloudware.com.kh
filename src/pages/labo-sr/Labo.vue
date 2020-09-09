@@ -256,7 +256,7 @@
 </template>
 
 <script>
-import {date} from "quasar";
+import {date, openURL} from "quasar";
 
 let data_from_stock_detail_pending = [];
 
@@ -267,7 +267,7 @@ export default {
       is_store: true,
       fullWidthDialog: false,
       hostname: 'https://api.khykimlong.cloudware.com.kh/',
-      // hostname: 'http://localhost:3000/',
+      // hostname: 'http://localhost:9000/',
       filter: '',
       pagination: {
         rowsPerPage: 0
@@ -418,12 +418,10 @@ export default {
       self.$q.loading.show()
       self.$store.dispatch('report/printLabo', id).then(function (data) {
         if (data.status) {
-          self.$q.loading.hide()
-          window.open(data.data.pdf, '_blank')
-          // setTimeout(function () {
-          //   self.$q.loading.hide()
-          //   window.open(data.data.pdf, '_blank')
-          // }, 2000);
+          setTimeout(async function () {
+            await openURL(data.data.pdf);
+            await self.$q.loading.hide()
+          }, 3000);
         }
       })
     },

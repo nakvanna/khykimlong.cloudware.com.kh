@@ -44,17 +44,19 @@
               </q-td>
               <q-td key="reference" :props="props">
                 <span v-if="props.row.type === 'HEMATOLOGY'">
-                  (N: {{props.row.min.toFixed(2)}} - {{props.row.max.toFixed(2)}} )
+                  (N: {{props.row.min}} - {{props.row.max}} )
                 </span>
                 <span v-if="props.row.type === 'LEUCOCYTAIRE'">
-                  (N: {{props.row.min.toFixed(2)}} - {{props.row.max.toFixed(2)}} )
+                  (N: {{props.row.min}} - {{props.row.max}} )
                 </span>
                 <span v-if="props.row.type === 'BIOCHIMIE'">
-                  <span v-if="props.row.min === null">(<{{props.row.max.toFixed(2)}} )</span>
-                  <span v-else>(N: {{props.row.min.toFixed(2)}} - {{props.row.max.toFixed(2)}} )</span>
+                  <span v-if="props.row.min === null">(<{{props.row.max}} )</span>
+                  <span v-if="props.row.min !== null">(N: {{props.row.min}} -d {{props.row.max}} )</span>
+                </span>
+                <span v-if="props.row.type === 'SÉROLOGIE'">
+
                 </span>
               </q-td>
-
             </q-tr>
           </template>
         </q-table>

@@ -198,7 +198,7 @@
         editorInit: {
           max_height:650,
           menubar: true,
-          images_upload_url: 'http://localhost:3000/file-upload',
+          images_upload_url: 'http://localhost:9000/file-upload',
           automatic_uploads: true,
           images_reuse_filename: true,
           relative_urls: false,
@@ -217,7 +217,7 @@
           title: '',
           content_id: '',
           thumbnail: '',
-          hostname: 'http://localhost:3000/',
+          hostname: 'http://localhost:9000/',
           category: 'JavaScript',
           description: '',
           content: '',
@@ -335,7 +335,7 @@
       await self.$store.dispatch('active_route/updateCurrentRoute', route_meta)
       self.$store.dispatch('blog/editBlog', this.$route.params.id).then(function (data) {
         self.data.title = data.data.title;
-        self.data.hostname = 'http://localhost:3000/';
+        self.data.hostname = 'http://localhost:9000/';
         self.data.thumbnail = data.data.thumbnail;
         self.data.category = data.data.category;
         self.data.description = data.data.description;

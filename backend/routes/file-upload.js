@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 // POST request - create a new staff
 router.post('/', upload.single('file'), async (req, res, next) => {
-  let hostname = 'http://localhost:3000/files/'
+  let hostname = 'http://localhost:9000/files/'
   try {
     res.json({
       status: true,

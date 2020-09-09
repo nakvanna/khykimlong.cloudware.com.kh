@@ -40,6 +40,7 @@ function calculate_age(dob) {
   return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
 
+/*
 router.post('/print-echo-baby/:id', async function (req, res, next) {
   let id = req.params.id;
   try {
@@ -114,8 +115,8 @@ router.post('/print-echo-baby/:id', async function (req, res, next) {
         docx: `${Date.now()}-${echo_baby.patient.lt_name}-${echo_baby.patient.lt_name}.docx`,
       },
       data: {
-        // pdf: 'http://localhost:3000/files/report.pdf',
-        // docx: 'http://localhost:3000/files/report.docx',
+        // pdf: 'http://localhost:9000/files/report.pdf',
+        // docx: 'http://localhost:9000/files/report.docx',
         pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
         docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
       },
@@ -130,87 +131,8 @@ router.post('/print-echo-baby/:id', async function (req, res, next) {
     return false
   }
 });
+*/
 
-/*router.post('/print-labo/:id', async function (req, res, next) {
-  let id = req.params.id;
-  try {
-    let labos = await Labo.findById(id).populate('patient');
-    let address = await Address.findById(labos.patient.current_address_book);
-    let labo_details = await Labo_detail.find({labo: labos._id})
-    console.log(labos.createdAt);
-    let data = {
-      full_name: labos.patient.kh_name,
-      gender: labos.patient.gender,
-      age: labos.patient.age,
-      address: address.province+ ' ' +address.district+ ' ' +address.commune+ ' ' +address.village,
-      createdAt: dateFormatConverted(labos.createdAt),
-      HAEMATHOLOGY: labo_details.filter((d) => {
-        return d.type === 'HAEMATHOLOGY'
-      }),
-      BIOCHEMISTRY: labo_details.filter((d) => {
-        return d.type === 'BIOCHEMISTRY'
-      }),
-      SEROLOGY: labo_details.filter((d) => {
-        return d.type === 'SEROLOGY'
-      }),
-      blood_pressure: labos.blood_pressure,
-      heat: labos.heat,
-      pulse: labos.pulse,
-      spo: labos.spo
-    };
-    const template = fs.readFileSync('./NewBlood_Template.docx');
-    const buffer = await docx.createReport({
-      template,
-      data: data,
-      additionalJsContext: {
-        injectSvg: () => {
-          const svg_data = Buffer.from(`<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                  <rect x="10" y="10" height="100" width="100" style="stroke:#ff0000; fill: #0000ff"/>
-                                </svg>`, 'utf-8');
-
-          // Providing a thumbnail is technically optional, as newer versions of Word will just ignore it.
-          const thumbnail = {
-            data: fs.readFileSync('./public/' + labos.patient.photo),
-            extension: '.png',
-          };
-          return {width: 2.6458333333, height: 3.96875, data: svg_data, extension: '.svg', thumbnail};
-        }
-      }
-    });
-    await fs.writeFileSync('./public/files/report.docx', buffer);
-    // Read file
-    const file = await fs.readFileSync(enterPath);
-    libre.convert(file, extend, undefined, async (err, done) => {
-      if (err) {
-        console.log(`Error converting file: ${err}`);
-      } else {
-        console.log('converted')
-      }
-      await fs.writeFileSync(outputPath, done);
-    });
-    res.json({
-      status: true,
-      label: {
-        pdf: `${Date.now()}-${labos.patient.llatin}-${labos.patient.flatin}.pdf`,
-        docx: `${Date.now()}-${labos.patient.llatin}-${labos.patient.flatin}}.docx`,
-      },
-      data: {
-        pdf: 'http://localhost:3000/files/report.pdf',
-        docx: 'http://localhost:3000/files/report.docx',
-        // pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
-        // docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
-      },
-      message: 'Successfully Generated report!'
-    });
-  } catch (e) {
-    res.json({
-      status: false,
-      message: e.message
-    })
-    console.log(e)
-    return false
-  }
-});*/
 router.post('/print-patient-sr/:id', async function (req, res, next) {
   let id = req.params.id;
   try {
@@ -241,23 +163,22 @@ router.post('/print-patient-sr/:id', async function (req, res, next) {
         console.log(`Error converting file: ${err}`);
       } else {
         console.log('converted')
-        res.json({
-          status: true,
-          label: {
-            pdf: `${Date.now()}-${new_patient_detail.patient.lt_name}.pdf`,
-            docx: `${Date.now()}-${new_patient_detail.patient.lt_name}.docx`,
-          },
-          data: {
-            // pdf: 'http://localhost:3000/files/report.pdf',
-            // docx: 'http://localhost:3000/files/report.docx',
-            pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
-            docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
-          },
-          message: 'Successfully Generated report!'
-        });
-        console.log('after converted')
       }
       await fs.writeFileSync(outputPath, done);
+    });
+    res.json({
+      status: true,
+      label: {
+        pdf: `${Date.now()}-${new_patient_detail.patient.lt_name}.pdf`,
+        docx: `${Date.now()}-${new_patient_detail.patient.lt_name}.docx`,
+      },
+      data: {
+        // pdf: 'http://localhost:9000/files/report.pdf',
+        // docx: 'http://localhost:9000/files/report.docx',
+        pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
+        docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
+      },
+      message: 'Successfully Generated report!'
     });
   } catch (e) {
     res.json({
@@ -298,46 +219,32 @@ router.post('/print-labo-sr/:id', async function (req, res, next) {
     const buffer = await docx.createReport({
       template,
       data: data,
-      /* additionalJsContext: {
-         injectSvg: () => {
-           const svg_data = Buffer.from(`<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                   <rect x="10" y="10" height="100" width="100" style="stroke:#ff0000; fill: #0000ff"/>
-                                 </svg>`, 'utf-8');
-
-           // Providing a thumbnail is technically optional, as newer versions of Word will just ignore it.
-           const thumbnail = {
-             data: fs.readFileSync('./public/' + labos.patient.photo),
-             extension: '.png',
-           };
-           return {width: 2.6458333333, height: 3.96875, data: svg_data, extension: '.svg', thumbnail};
-         }
-       }*/
     });
     await fs.writeFileSync('./public/files/report.docx', buffer);
+
     // Read file
     const file = await fs.readFileSync(enterPath);
-    libre.convert(file, extend, undefined, async (err, done) => {
+    await libre.convert(file, extend, undefined, async (err, done) => {
       if (err) {
         console.log(`Error converting file: ${err}`);
       } else {
-        console.log('converted')
-        res.json({
-          status: true,
-          label: {
-            pdf: `${Date.now()}-${labos.patient.llatin}-${labos.patient.flatin}.pdf`,
-            docx: `${Date.now()}-${labos.patient.llatin}-${labos.patient.flatin}}.docx`,
-          },
-          data: {
-            // pdf: 'http://localhost:3000/files/report.pdf',
-            // docx: 'http://localhost:3000/files/report.docx',
-            pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
-            docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
-          },
-          message: 'Successfully Generated report!'
-        });
-        console.log('after converted')
+        console.log('converted');
       }
       await fs.writeFileSync(outputPath, done);
+    });
+    res.json({
+      status: true,
+      label: {
+        pdf: `${Date.now()}-${labos.patient.lt_name}.pdf`,
+        docx: `${Date.now()}-${labos.patient.lt_name}.docx`,
+      },
+      data: {
+        // pdf: 'http://localhost:9000/files/report.pdf',
+        // docx: 'http://localhost:9000/files/report.docx',
+        pdf: 'https://api.khykimlong.cloudware.com.kh/files/report.pdf',
+        docx: 'https://api.khykimlong.cloudware.com.kh/files/report.docx',
+      },
+      message: 'Successfully Generated report!'
     });
   } catch (e) {
     res.json({

@@ -380,7 +380,7 @@ export default {
         rowsPerPage: 0
       },
       hostname: 'https://api.khykimlong.cloudware.com.kh/',
-      // hostname: 'http://localhost:3000/',
+      // hostname: 'http://localhost:9000/',
       columns_receive: [
         // {align: 'left', name: '_id', field: '_id'},
         {align: 'left', name: 'no', label: 'ល.រ', field: 'no', sortable: true},

@@ -173,7 +173,7 @@
           invent_type: '',
           description: '',
           hostname: 'https://api.khykimlong.cloudware.com.kh/',
-          // hostname: 'http://localhost:3000/',
+          // hostname: 'http://localhost:9000/',
         },
         data_readonly: {
           buy_price: false,

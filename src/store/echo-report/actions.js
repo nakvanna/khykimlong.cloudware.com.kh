@@ -3,8 +3,10 @@ import $http from '../../boot/token_request'
 export async function printLabo({}, id) {
   try {
     const res = await $http.post('/reports/print-labo-sr/' + id);
+    console.log(res.data)
     return res.data
   } catch (e) {
+    console.log(e)
     return false
   }
 }
