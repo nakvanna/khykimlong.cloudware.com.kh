@@ -24,7 +24,7 @@ router.post('/', async (req, res, next) => {
 // GET request - get labo setting
 router.get('/get', async (req, res, next) => {
   try {
-    await Labo_Setting.find().sort('-createdAt').exec(function (err, labo_setting) {
+    await Labo_Setting.find().sort('createdAt').exec(function (err, labo_setting) {
       res.json({
         status: true,
         data: labo_setting,

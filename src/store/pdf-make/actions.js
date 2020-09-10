@@ -165,7 +165,6 @@ export async function autoPrintSale({commit}, data) {
   }
 }
 export async function printSale({commit}, data) {
-  console.log(data)
   let pt = data.data[0].patient;
   let dt = data.data[0];
   let dtt = data.detail;
@@ -250,4 +249,5 @@ export async function printSale({commit}, data) {
   };
   const pdfDoc = pdfMake.createPdf(documentDefinition, null, fonts);
   pdfDoc.print();
+  // return pdfMake.createPdf(documentDefinition, null, fonts);
 }

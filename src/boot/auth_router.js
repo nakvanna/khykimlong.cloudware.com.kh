@@ -13,7 +13,7 @@ export default ({router}) => {
       next('/');
     }
     if (token) {
-      if (token.user_info.user_type !== 0 && to.path === '/user/manager') {
+      if (token.user_info.user_type !== '0' && to.path === '/user/manager') {
         next('/')
       }
     }

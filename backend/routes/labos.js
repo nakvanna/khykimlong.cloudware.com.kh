@@ -118,23 +118,6 @@ router.get('/:id/get', async (req, res, next) => {
     })
   }
 });
-// router.get('/:id/get-by-id', async (req, res, next) => {
-//   console.log('World');
-//   try {
-//     await Labo.findById(req.params.id).select('_id').populate('patient', '_id').exec(function (err, labo) {
-//       res.json({
-//         status: true,
-//         data: labo,
-//         message: 'Successfully fetched!'
-//       })
-//     });
-//   } catch (e) {
-//     res.json({
-//       status: false,
-//       message: e.message.split(':')[0]
-//     })
-//   }
-// });
 router.put('/:id/update', async (req, res, next) => {
   let id = req.params.id;
   try {

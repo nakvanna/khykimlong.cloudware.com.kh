@@ -138,7 +138,6 @@
 
 <script>
   import {date} from "quasar";
-
   const columns_default = [
     {align: 'left', name: 'patient_name', label: 'អ្នកទិញ', field: 'patient_name'},
     {align: 'left', name: 'patient_contact', label: 'ទូរសព្ទ', field: 'patient_contact'},
@@ -159,6 +158,7 @@
     name: "SaleView",
     data(){
       return {
+        dialog: false,
         pagination: {
           rowsPerPage: 0
         },
@@ -191,6 +191,8 @@
         return date.formatDate(val, 'DD/MM/YYYY')
       },
       printPdf(){
+        let self = this;
+        self.dialog = true;
         this.$store.dispatch('pdf_make/printSale', {data:this.sale_data, detail: this.sale_detail_data});
       }
     }
